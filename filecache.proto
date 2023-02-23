@@ -1,0 +1,28 @@
+syntax = "proto3";
+option go_package = "cache";
+
+enum File_Opt {
+    unkonw = 0;
+    put = 1;
+    del = 2;
+}
+
+message ProtoVal {
+    int64 timeout=1;
+    bytes data=2;
+}
+
+message ProtoCache {
+    map<string,ProtoVal> datas=1;
+}
+
+message Opt {
+    File_Opt type=1;
+    string key=2;
+    int64 timeout=3;
+    bytes data=4;
+}
+
+message OptList {
+    repeated Opt lists=1;
+}
